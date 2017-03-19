@@ -15,7 +15,7 @@ is disabled).
 To see this image in action, run the following command;
 
 ```bash
-$ docker run --rm -p 5050:5050 thajeztah/pgadmin4
+$ docker run --rm -p 5050:5050 sovchinn/pgadmin
 ```
 
 This starts a one-off container in non-detached mode, and container logs are
@@ -37,14 +37,12 @@ $ docker network create pg
 $ docker run -d -e POSTGRES_PASSWORD=password --net pg --name postgres postgres
 
 # start pgAdmin container
-$ docker run -d -p 5050:5050 --name pgadmin --net pg thajeztah/pgadmin4
+$ docker run -d -p 5050:5050 --name pgadmin --net pg sovchinn/pgadmin
 ```
 
 Now visit `http://[your-docker-host]:5050` in your browser. You can add the
 postgres database (hostname is `postgres`, password is `password`) to test
 if everything is working.
-
-![screenshot](https://raw.githubusercontent.com/thaJeztah/pgadmin4-docker/master/pgadmin-screenshot.png)
 
 ## Persistent data
 
@@ -69,7 +67,7 @@ storage
 For example, to bind-mount the `/Users/me/pgadmin` directory as storage directory;
 
 ```bash
-$ docker run -d -p 5050:5050 -v /Users/me/pgadmin:/pgadmin thajeztah/pgadmin4
+$ docker run -d -p 5050:5050 -v /Users/me/pgadmin:/pgadmin sovchinn/pgadmin
 ```
 
 ## Run the image with a read-only filesystem
@@ -78,7 +76,7 @@ This image can be run with a read-only filesystem. To do so, specify the
 `--read-only` flag when starting the container.
 
 ```bash
-$ docker run -d -p 5050:5050 --name pgadmin --read-only thajeztah/pgadmin4
+$ docker run -d -p 5050:5050 --name pgadmin --read-only sovchinn/pgadmin
 ```
 
 ## Runtime configuration
